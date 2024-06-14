@@ -1,0 +1,78 @@
+﻿<Window x:Class="ST10391534_NicolBlack_RecipeBookGUI_POE_Part3.RecipesWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ST10391534_NicolBlack_RecipeBookGUI_POE_Part3"
+        mc:Ignorable="d"
+        Title="Recipes Window" Height="800" Width="880" Background="#EFE8CB">
+    <Grid>
+        <!-- Define two columns in the Grid: one fixed at 300 pixels and the other taking the remaining space -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- StackPanel for navigation buttons, aligned to the left (column 0) -->
+        <StackPanel Background="#4C2947" Grid.Column="0" HorizontalAlignment="Stretch">
+            <!-- Button to view recipes -->
+            <Button x:Name="viewRecipesBtn" Content="View Recipes" Width="167" Height="39" Margin="10" Click="ViewRecipes_Click"
+                    Background="#4C2947" Foreground="White" FontFamily="Perpetua" FontSize="13.2" FontWeight="Bold"/>
+            <!-- TextBox for searching -->
+            <TextBox x:Name="searchTBox" FontFamily="Segoe UI" FontSize="11" Width="226" Height="32" Margin="10"/>
+            <!-- Button to perform search -->
+            <Button x:Name="searchBtn" Content="Search" Width="100" Height="34" Margin="10" Click="Search_Click"
+                    Background="#4C2947" Foreground="White" FontFamily="Perpetua" FontSize="13.2" FontWeight="Bold"/>
+            <!-- Button to delete a recipe -->
+            <Button x:Name="DeleteBtn" Content="Delete" Width="167" Height="39" Margin="10" Click="Delete_Click"
+                    Background="#4C2947" Foreground="White" FontFamily="Perpetua" FontSize="13.2" FontWeight="Bold"/>
+            <!-- Button to navigate back -->
+            <Button x:Name="backBtn" Content="Back" Width="169" Height="39"  Margin="10" Click="BackBtn_Click"
+                    Background="#4C2947" Foreground="White" FontFamily="Perpetua" FontSize="13.2" FontWeight="Bold"/>
+            <!-- Button to exit the application -->
+            <Button x:Name="exitBtn" Content="EXIT" Width="167" Height="39" Margin="10" Click="Exit_Click"
+                    Background="#4C2947" Foreground="White" FontFamily="Perpetua" FontSize="13.2" FontWeight="Bold"/>
+        </StackPanel>
+
+        <!-- StackPanel for main content, aligned to the right (column 1) -->
+        <StackPanel Grid.Column="1" Margin="10">
+            <!-- Heading label for the recipe book -->
+            <Label x:Name="Heading" Content="The Recipe Book" FontFamily="Perpetua" FontSize="25.8" FontWeight="Bold" FontStyle="Italic"/>
+            <!-- Horizontal stack panel for ingredient input -->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10">
+                <Label Content="Ingredient:" VerticalAlignment="Center"/>
+                <TextBox x:Name="ingredientsTBox" Width="200" Height="23" Margin="5"/>
+                <Label Content="Calories:" VerticalAlignment="Center"/>
+                <TextBox x:Name="caloriesTBox" Width="200" Height="23" Margin="5" TextChanged="caloriesTBox_TextChanged"/>
+            </StackPanel>
+            <!-- Horizontal stack panel for food group selection -->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10">
+                <Label Content="Food Group:" VerticalAlignment="Center"/>
+                <!-- ComboBox for selecting food groups -->
+                <ComboBox x:Name="foodGroupCBox" Width="200" Height="23" Margin="5">
+                    <ComboBoxItem Content="Grains"/>
+                    <ComboBoxItem Content="Milk"/>
+                    <ComboBoxItem Content="Fruits"/>
+                    <ComboBoxItem Content="Eggs"/>
+                    <ComboBoxItem Content="Meat and Poultry"/>
+                    <ComboBoxItem Content="Fish / Shellfish"/>
+                    <ComboBoxItem Content="Vegetables"/>
+                    <ComboBoxItem Content="Fats/Oils"/>
+                    <ComboBoxItem Content="Legumes/Nuts/Seeds"/>
+                    <ComboBoxItem Content="Sugar / Spices"/>
+                    <ComboBoxItem Content="Dietary Supplements"/>
+                    <ComboBoxItem Content="Non-alcoholic Beverages"/>
+                    <ComboBoxItem Content="Alcoholic Beverages"/>
+                </ComboBox>
+                <!-- Button to apply filter based on food group -->
+                <Button x:Name="filterBtn" Content="Filter" Width="94" Height="29" Margin="5" Click="Filter_Click"
+                        Background="#4C2947" Foreground="White" FontFamily="Perpetua" FontSize="10.8" FontWeight="Bold"/>
+            </StackPanel>
+            <!-- ListBox to display all recipes -->
+            <ListBox x:Name="allRecipesLBox" Height="484" Margin="10" MouseDoubleClick="AllRecipesLBox_DoubleClick"/>
+        </StackPanel>
+
+        <!-- Close button label aligned to the top right corner -->
+        <Label x:Name="closeBtn" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" FontFamily="Lucida Console" FontSize="12" MouseDown="CloseBtn_MouseDown"/>
+    </Grid>
+    </Window>

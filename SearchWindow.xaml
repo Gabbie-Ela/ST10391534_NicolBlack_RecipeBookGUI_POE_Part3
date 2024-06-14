@@ -1,0 +1,45 @@
+﻿<Window x:Class="ST10391534_NicolBlack_RecipeBookGUI_POE_Part3.SearchWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Search Window" Height="770" Width="880" Background="#EFE8CB">
+    <!-- Sets the title, height, width, and background color of the Window -->
+
+    <!-- Main layout container -->
+    <Grid>
+        <!-- Defines two columns for the grid -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <!-- First column width set to 300 units -->
+            <ColumnDefinition Width="*"/>
+            <!-- Second column width takes remaining space (*) -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Panel -->
+        <StackPanel Background="#4C2947" Grid.Column="0" VerticalAlignment="Stretch">
+            <!-- StackPanel in the first column with specified background color -->
+            <Button x:Name="viewRecipes_btn" Content="View Recipes" Style="{StaticResource SideButtonStyle}" Click="ViewRecipes_Click"/>
+            <!-- Button for viewing recipes with a specified style and click event -->
+            <TextBox x:Name="searchTBox" Margin="10, 20, 10, 0" FontSize="14" TextChanged="SearchTBox_TextChanged" Height="32" Width="226"/>
+            <!-- TextBox for search with margins, font size, and text changed event -->
+            <Button x:Name="search_btn" Content="Search" Style="{StaticResource SideButtonStyle}" Click="Search_Click"/>
+            <!-- Button for search with a specified style and click event -->
+            <Button x:Name="backBtn" Content="Back" Style="{StaticResource SideButtonStyle}" Click="BackBtn_Click"/>
+            <!-- Button for going back with a specified style and click event -->
+            <Button x:Name="exit_btn" Content="EXIT" Style="{StaticResource SideButtonStyle}" Click="Exit_Click"/>
+            <!-- Button for exiting with a specified style and click event -->
+        </StackPanel>
+
+        <!-- Main Content -->
+        <StackPanel Grid.Column="1" Margin="20">
+            <!-- StackPanel in the second column with a margin -->
+            <TextBlock Text="The Recipe Book" FontSize="26" FontWeight="Bold" FontStyle="Italic" Margin="0,0,0,20" x:Name="Heading"/>
+            <!-- TextBlock for heading with specified text, font size, style, margins, and name -->
+            <ListBox x:Name="searchBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseDoubleClick="SearchBox_DoubleClick" Height="584"/>
+            <!-- ListBox for search results with stretch alignment, double-click event, and height -->
+        </StackPanel>
+
+        <!-- Close Button -->
+        <Label x:Name="closeBtn" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" FontFamily="Lucida Console" FontSize="12" MouseDown="CloseBtn_MouseDown"/>
+        <!-- Label acting as a close button with specified content, alignment, margins, font family, font size, and mouse down event -->
+    </Grid>
+</Window>
